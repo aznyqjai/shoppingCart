@@ -15,6 +15,9 @@ body {
   margin-bottom: 0;
 }
 
+#welcome_modal{
+  display: none;
+}
 
 /* Add a gray background color and some padding to the footer */
 footer {

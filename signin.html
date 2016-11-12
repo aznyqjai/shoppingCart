@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Checkout</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="cart" >
+
+<!-- navbar stuff -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">nycda Store</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Category</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Modal -->
+<div id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="bs-example bs-example-tabs">
+        <ul id="myTab" class="nav nav-tabs">
+          <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+          <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+        </ul>
+      </div>
+
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+
+          <!-- signin tab -->
+          <div class="tab-pane fade active in" id="signin">
+           <!--  <form class="form-horizontal">
+              <fieldset> -->
+                <!-- Sign In Form -->
+                <!-- Text input-->
+                <div class="control-group">
+                  <label class="control-label" for="signin_userid">Username:</label>
+                  <div class="controls">
+                    <input required="" id="signin_userid" name="signin_userid" type="text" class="form-control" placeholder="user@domain.com" class="input-medium" required="">
+                  </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="control-group">
+                  <label class="control-label" for="signin_password">Password:</label>
+                  <div class="controls">
+                    <input required="" id="signin_password" name="signin_password" class="form-control" type="password" placeholder="********" class="input-medium">
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <div class="control-group">
+                  <label class="control-label" for="signin"></label>
+                  <div class="controls">
+                    <button id="signin" name="signin" class="btn btn-success" onclick="sign_in()">Sign In</button>
+                  </div>
+                </div>
+             <!--  </fieldset>
+            </form> -->
+          </div>
+
+          <!-- signup tab -->
+          <div class="tab-pane fade" id="signup">
+            <form class="form-horizontal">
+              <fieldset>
+                <!-- Sign Up Form -->
+                <!-- Text input-->
+                <div class="control-group">
+                  <label class="control-label" for="first_name">First Name:</label>
+                  <div class="controls">
+                    <input id="first_name" name="first_name" class="form-control" type="text" placeholder="John" class="input-large" required="">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="last_name">Last Name:</label>
+                  <div class="controls">
+                    <input id="last_name" name="last_name" class="form-control" type="text" placeholder="Doe" class="input-large" required="">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="userid">Username:</label>
+                  <div class="controls">
+                    <input id="userid" name="userid" class="form-control" type="text" placeholder="user@domain.com" class="input-large" required="">
+                  </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="control-group">
+                  <label class="control-label" for="password">Password:</label>
+                  <div class="controls">
+                    <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                    <em>1-8 Characters</em>
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="control-group">
+                  <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                  <div class="controls">
+                    <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <div class="control-group">
+                  <label class="control-label" for="confirmsignup"></label>
+                  <div class="controls">
+                    <button id="confirmsignup" name="confirmsignup" class="btn btn-success" onclick="signup()">Sign Up</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Welcome Back Modal -->
+<div id="welcome_modal">
+  <div class="modal-dialog modal-sm tab-pane">
+    <h1 id="welcome_text"> WELCOME BACK </h1>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>nycda Copyright</p>
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger">Sign Up</button>
+  </form>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="cookies.js"> </script>  
+<script src="app.js"></script>
+</body>
+</html>
+
