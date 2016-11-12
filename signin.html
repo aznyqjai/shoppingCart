@@ -28,7 +28,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"><span id="youraccount">Your Account</span></span></a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
@@ -105,17 +105,17 @@
                 </div>
 
                 <div class="control-group">
-                  <label class="control-label" for="userid">Username:</label>
+                  <label class="control-label" for="signup_userid">Username:</label>
                   <div class="controls">
-                    <input id="userid" name="userid" class="form-control" type="text" placeholder="user@domain.com" class="input-large" required="">
+                    <input id="signup_userid" name="signup_userid" class="form-control" type="text" placeholder="user@domain.com" class="input-large" required="">
                   </div>
                 </div>
 
                 <!-- Password input-->
                 <div class="control-group">
-                  <label class="control-label" for="password">Password:</label>
+                  <label class="control-label" for="ignup_password">Password:</label>
                   <div class="controls">
-                    <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                    <input id="signup_password" name="ignup_password" class="form-control" type="password" placeholder="********" class="input-large" required="">
                     <em>1-8 Characters</em>
                   </div>
                 </div>
@@ -149,6 +149,7 @@
 <div id="welcome_modal">
   <div class="modal-dialog modal-sm tab-pane">
     <h1 id="welcome_text"> WELCOME BACK </h1>
+    <button id="logout" class="btn btn-success" onclick="log_out()">Logout</button>
   </div>
 </div>
 

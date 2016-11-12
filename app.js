@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	console.log("$ fired");
+	check_user_logged()
 		//checking to see if it's cart page. if it is, fired blabalbal
 		// $(function(){
 		//   if($('body').is('.cart')){
@@ -41,35 +42,78 @@ function sign_in(){
 		type: "POST",
 		url: "http://art-share.herokuapp.com/api/v1/sessions/new",
 		data: {
-		email: email,
-		password: password
+			email: email,
+			password: password
 		},
 		success: function(response){
-			//window.response=response;
-			if (response.result===null){
+		//window.response=response;
+		if (response.result===null){
 			console.log("wrong login !!");
-			//document.getElementById('welcome').innerHTML="Wrong Credential";
-			}
-			else {
+		//document.getElementById('welcome').innerHTML="Wrong Credential";
+		}
+		else {
 			console.log("firstName is: "+ response.result.fname);
 			$("#myModal").hide();
 			$("#welcome_modal").show();
 			$("#welcome_text").html("WELCOME BACK "+ response.result.fname);
-			Cookies.set("userlogged", true);
-			}
+			$("#youraccount").html(response.result.fname);
 
+			Cookies.set("userlogged", JSON.stringify({username:email, name:response.result.fname}));
 		}
 
+	}
+})
+}
 
-	})
+function log_out(){
+	Cookies.expire("userlogged");
+	location.reload();
 }
 
 
-
+function check_user_logged(){
+	if (Cookies.get("userlogged")) {
+		var name=$.parseJSON(Cookies.get("userlogged")).name;
+		$("#youraccount").html(name);
+		$("#myModal").hide();
+		$("#welcome_modal").show();
+		$("#welcome_text").html("WELCOME BACK "+ name);		
+	};
+}
 
 
 function signup(){
 	console.log("sign UP () fired");
+	var fname = $("#first_name").val();
+	var lname = $("#last_name").val();
+	var email = $("#signup_userid").val(); 				//"qzhang@gmail.com";
+	var password = $("#signup_password").val();
+	var reenterpassword = $("#reenterpassword").val();
+	if (password==reenterpassword){
+		console.log("same password and it is: " + password);
+
+		$.ajax({
+		  type: "POST",
+		  url: "http://art-share.herokuapp.com/api/v1/users/",
+		  data:{
+		    user: {
+		      fname: fname,
+		      lname: lname,
+		      password: password,
+		      email: email
+		    },
+
+		    success: function(response){
+				console.log("sign up success");
+				$("#myModal").hide();
+				$("#welcome_modal").show();
+				$("#welcome_text").html("WELCOME "+ fname);
+				$("#youraccount").html(fname);
+				Cookies.set("userlogged", JSON.stringify({username:email, name:fname}));
+			}
+		  }
+		})
+	}
 }
 
 
